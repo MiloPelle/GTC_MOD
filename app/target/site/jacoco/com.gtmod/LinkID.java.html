@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LinkID.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">com.gtmod</a> &gt; <span class="el_source">LinkID.java</span></div><h1>LinkID.java</h1><pre class="source lang-java linenums">package com.gtmod;
+
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+<span class="nc" id="L14">public class LinkID {</span>
+    
+    static String choice;
+<span class="nc" id="L17">    static Scanner in = new Scanner(System.in);</span>
+    static String ID;
+
+    public static void LinkID() throws IOException{
+
+        Document GTCF;
+<span class="nc" id="L23">        System.out.print(&quot;\033[H\033[2J&quot;);</span>
+<span class="nc" id="L24">        System.out.println(&quot;Enter Link ID:&quot;);</span>
+        
+<span class="nc" id="L26">        ID = in.next();</span>
+
+<span class="nc" id="L28">        String GTCURL = &quot;https://gorillatagcomp.com/leaderboard/0/&quot;+choice;</span>
+
+        try{
+
+<span class="nc" id="L32">        GTCF = Jsoup.connect(GTCURL).get();</span>
+        
+<span class="nc" id="L34">        Elements GTCName = GTCF.getElementsByClass(&quot;LeaderCardName&quot;);</span>
+<span class="nc" id="L35">        Elements MMR = GTCF.getElementsByClass(&quot;LeaderCardStats&quot;);</span>
+
+<span class="nc" id="L37">        System.out.print(&quot;\033[H\033[2J&quot;);</span>
+<span class="nc" id="L38">        System.out.println(&quot;Is This Your Profile?&quot;);</span>
+<span class="nc" id="L39">        System.out.println(&quot;--------------------------------------------------|&quot;);</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        for(Element a : GTCName){</span>
+<span class="nc" id="L41">            System.out.println(&quot;| Discord Name: &quot;+a.text());</span>
+<span class="nc" id="L42">        }</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        for(Element b : MMR){</span>
+<span class="nc" id="L44">            String Rate = b.text();</span>
+<span class="nc" id="L45">            System.out.println(&quot;| Stats: &quot;+Rate);</span>
+<span class="nc" id="L46">            System.out.println(&quot;--------------------------------------------------|&quot;);</span>
+<span class="nc" id="L47">            System.out.println(&quot;Save Link ID (y/n)&quot;);</span>
+<span class="nc" id="L48">        }</span>
+<span class="nc" id="L49">        in.reset();</span>
+<span class="nc" id="L50">        SID();</span>
+        
+<span class="nc" id="L52">        }catch (java.net.SocketException e){</span>
+
+<span class="nc" id="L54">            System.out.print(&quot;\033[H\033[2J&quot;);</span>
+<span class="nc" id="L55">            e.printStackTrace();</span>
+<span class="nc" id="L56">            System.out.println(&quot;Either Bad Wifi Connection Or Domain Blocked&quot;);</span>
+<span class="nc" id="L57">            Building.BFailer();</span>
+
+<span class="nc" id="L59">        }</span>
+<span class="nc" id="L60">    }</span>
+
+    public static void SID() throws IOException{
+    
+<span class="nc" id="L64">            choice = in.next();</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">            if(choice.equals(&quot;y&quot;)){</span>
+
+<span class="nc" id="L67">                FileWriter WriteID = new FileWriter(&quot;ID.txt&quot;, true);</span>
+<span class="nc" id="L68">                BufferedWriter saveID = new BufferedWriter(WriteID);</span>
+<span class="nc" id="L69">                System.out.println(ColorTextIndication.ANSI_GREEN+&quot;SAVE SUCCESS&quot;);</span>
+
+<span class="nc" id="L71">                saveID.write(&quot;\033[H\033[2J&quot;);</span>
+<span class="nc" id="L72">                saveID.write(ID);</span>
+<span class="nc" id="L73">                System.out.println(ColorTextIndication.ANSI_GREEN+&quot;SAVE SUCCESS&quot;+ColorTextIndication.ANSI_RESET);</span>
+<span class="nc" id="L74">                saveID.close();</span>
+<span class="nc" id="L75">                Main.home();</span>
+
+<span class="nc bnc" id="L77" title="All 2 branches missed.">            }else if(choice.equals(&quot;n&quot;)){</span>
+
+<span class="nc" id="L79">                Main.home();</span>
+
+            }else{
+
+<span class="nc" id="L83">                System.out.println(ColorTextIndication.ANSI_RED+&quot;INVALID RESPONSE : TRY AGAIN&quot;);</span>
+<span class="nc" id="L84">                SID();</span>
+
+        }
+<span class="nc" id="L87">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
