@@ -25,7 +25,7 @@ public class LinkID {
         
         ID = in.next();
 
-        String GTCURL = "https://gorillatagcomp.com/leaderboard/0/"+choice;
+        String GTCURL = "https://gorillatagcomp.com/leaderboard/0/"+ID;
 
         try{
 

@@ -24,9 +24,9 @@ public class Main {
             if(HomeOpt.equals("1")){
                 LinkID.LinkID();
             }else if(HomeOpt.equals("2")){
-
+                Session.GTCS();
             }else if(HomeOpt.equals("3")){
-                
+                //haven't created yet
             }
             HomeOp.close();
         }

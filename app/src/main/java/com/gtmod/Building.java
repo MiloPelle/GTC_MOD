@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class Building {
 
+    static Scanner accept = new Scanner(System.in);
+    static Boolean readF = accept.hasNext();
+
     public static void BFailer() throws IOException{
 
         System.out.println("-------------------------------------");
@@ -13,11 +16,21 @@ public class Building {
         System.out.println(" Press Any Key To Go Home");
         System.out.println("-------------------------------------");
 
-        try(Scanner BuildFailure = new Scanner(System.in)){
+            if(readF = true){
+                accept.reset();
+                Main.home();
+        }
+    }
 
-            String aProblem = BuildFailure.next();
+    public static void BSuccess() throws IOException{
+        System.out.println("-------------------------------------");
+        System.out.println(" "+ColorTextIndication.ANSI_GREEN+"BUILD SUCCESS"+ColorTextIndication.ANSI_RESET);
+        System.out.println(" Press Any Key To Go Home");
+        System.out.println("-------------------------------------");
+
+        if(readF = true){
+            accept.reset();
             Main.home();
-
         }
     }
 }
