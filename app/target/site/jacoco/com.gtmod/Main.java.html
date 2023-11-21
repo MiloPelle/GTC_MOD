@@ -17,19 +17,28 @@ import java.util.Scanner;
 <span class="nc" id="L17">        System.out.printf(&quot;|        1. Change LinkID       |%n&quot;);</span>
 <span class="nc" id="L18">        System.out.printf(&quot;|        2. Start Session       |%n&quot;);</span>
 <span class="nc" id="L19">        System.out.printf(&quot;|        3. Stat Logs           |%n&quot;);</span>
-<span class="nc" id="L20">        System.out.printf(&quot;|-------------------------------|%n&quot;);</span>
+<span class="nc" id="L20">        System.out.printf(&quot;|        4. Find MMR            |%n&quot;);</span>
+<span class="nc" id="L21">        System.out.printf(&quot;|-------------------------------|%n&quot;);</span>
 
-<span class="nc" id="L22">        try (Scanner HomeOp = new Scanner(System.in)){</span>
-<span class="nc" id="L23">            String HomeOpt = HomeOp.next();</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">            if(HomeOpt.equals(&quot;1&quot;)){</span>
-<span class="nc" id="L25">                LinkID.LinkID();</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">            }else if(HomeOpt.equals(&quot;2&quot;)){</span>
-
-<span class="nc bnc" id="L28" title="All 2 branches missed.">            }else if(HomeOpt.equals(&quot;3&quot;)){</span>
+<span class="nc" id="L23">        try (Scanner HomeOp = new Scanner(System.in)){</span>
+<span class="nc" id="L24">            String HomeOpt = HomeOp.next();</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">            if(HomeOpt.equals(&quot;1&quot;)){</span>
+<span class="nc" id="L26">                System.out.print(&quot;\033[H\033[2J&quot;);</span>
+<span class="nc" id="L27">                LinkID.LinkID();</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">            }else if(HomeOpt.equals(&quot;2&quot;)){</span>
+<span class="nc" id="L29">                System.out.print(&quot;\033[H\033[2J&quot;);</span>
+<span class="nc" id="L30">                Session.GTCS();</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">            }else if(HomeOpt.equals(&quot;3&quot;)){</span>
+                //haven't created yet
+<span class="nc bnc" id="L33" title="All 2 branches missed.">            }else if(HomeOpt.equals(&quot;4&quot;)){</span>
+<span class="nc" id="L34">                System.out.print(&quot;\033[H\033[2J&quot;);</span>
+<span class="nc" id="L35">                FindMMR.QuickFind();</span>
+<span class="nc" id="L36">                HomeOp.close();</span>
+            }else{
+<span class="nc" id="L38">                System.out.println(ColorTextIndication.ANSI_RED+&quot;INVALID RESPONSE TRY AGAIN&quot;+ColorTextIndication.ANSI_RESET);</span>
                 
             }
-<span class="nc" id="L31">            HomeOp.close();</span>
         }
-<span class="nc" id="L33">    }</span>
+<span class="nc" id="L42">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

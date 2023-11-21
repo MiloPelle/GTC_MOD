@@ -17,18 +17,27 @@ public class Main {
         System.out.printf("|        1. Change LinkID       |%n");
         System.out.printf("|        2. Start Session       |%n");
         System.out.printf("|        3. Stat Logs           |%n");
+        System.out.printf("|        4. Find MMR            |%n");
         System.out.printf("|-------------------------------|%n");
 
         try (Scanner HomeOp = new Scanner(System.in)){
             String HomeOpt = HomeOp.next();
             if(HomeOpt.equals("1")){
+                System.out.print("\033[H\033[2J");
                 LinkID.LinkID();
             }else if(HomeOpt.equals("2")){
+                System.out.print("\033[H\033[2J");
                 Session.GTCS();
             }else if(HomeOpt.equals("3")){
                 //haven't created yet
+            }else if(HomeOpt.equals("4")){
+                System.out.print("\033[H\033[2J");
+                FindMMR.QuickFind();
+                HomeOp.close();
+            }else{
+                System.out.println(ColorTextIndication.ANSI_RED+"INVALID RESPONSE TRY AGAIN"+ColorTextIndication.ANSI_RESET);
+                
             }
-            HomeOp.close();
         }
     }
 }
