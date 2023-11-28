@@ -8,7 +8,7 @@ public class Main {
         home();
     }
     public static void home() throws IOException{
-        System.out.println("\033[H\033[2J");
+        System.out.print("\033[H\033[2J");
         System.out.printf("|-------------------------------|%n");
         System.out.printf("|            GTC_MOD            |%n");
         System.out.printf("|            By: Lofi           |%n");
@@ -18,6 +18,7 @@ public class Main {
         System.out.printf("|        2. Start Session       |%n");
         System.out.printf("|        3. Stat Logs           |%n");
         System.out.printf("|        4. Find MMR            |%n");
+        System.out.printf("|        5. Terminate App       |%n");
         System.out.printf("|-------------------------------|%n");
 
         try (Scanner HomeOp = new Scanner(System.in)){
@@ -34,9 +35,12 @@ public class Main {
                 System.out.print("\033[H\033[2J");
                 FindMMR.QuickFind();
                 HomeOp.close();
+            }else if(HomeOpt.equals("5")){
+                System.out.println("PROGRAM ENDED");
             }else{
+                System.out.print("\033[H\033[2J");
                 System.out.println(ColorTextIndication.ANSI_RED+"INVALID RESPONSE TRY AGAIN"+ColorTextIndication.ANSI_RESET);
-                
+                home();
             }
         }
     }

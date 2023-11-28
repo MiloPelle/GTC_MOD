@@ -2,6 +2,7 @@ package com.gtmod;
 
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -16,6 +17,7 @@ public class LinkID {
     static String choice;
     static Scanner in = new Scanner(System.in);
     static String ID;
+    static File IDFile = new File("C:\\Users\\milop\\OneDrive\\Documents\\Personal Github Repositories\\GTC_MOD-1\\app\\Docs\\ID\\ID.txt");
 
     public static void LinkID() throws IOException{
 
@@ -64,11 +66,11 @@ public class LinkID {
             choice = in.next();
             if(choice.equals("y")){
 
-                FileWriter WriteID = new FileWriter("ID.txt", true);
+                FileWriter WriteID = new FileWriter(IDFile, true);
                 BufferedWriter saveID = new BufferedWriter(WriteID);
                 System.out.println(ColorTextIndication.ANSI_GREEN+"SAVE SUCCESS");
 
-                saveID.write("\033[H\033[2J");
+                saveID.write("");
                 saveID.write(ID);
                 System.out.println(ColorTextIndication.ANSI_GREEN+"SAVE SUCCESS"+ColorTextIndication.ANSI_RESET);
                 saveID.close();

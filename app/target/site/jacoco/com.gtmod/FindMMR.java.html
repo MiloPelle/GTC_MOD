@@ -12,7 +12,7 @@ import org.jsoup.select.Elements;
 
 <span class="nc" id="L13">    static Scanner QFind = new Scanner(System.in);</span>
     static String tID;
-    static String choice;
+<span class="nc" id="L15">    static String choice;</span>
 
     public static void QuickFind() throws IOException{
 
@@ -33,10 +33,10 @@ import org.jsoup.select.Elements;
 <span class="nc" id="L33">        System.out.println(&quot;----------------------------&quot;);</span>
 <span class="nc bnc" id="L34" title="All 2 branches missed.">        for(Element Etmmr : tMMR){</span>
 <span class="nc" id="L35">            System.out.println(&quot;Discord Name: &quot;+Etmmr);</span>
-<span class="nc" id="L36">        }</span>
+        }
 <span class="nc bnc" id="L37" title="All 2 branches missed.">        for(Element EtName : tName){</span>
 <span class="nc" id="L38">            System.out.println(&quot;Rating: &quot;+EtName);</span>
-<span class="nc" id="L39">        }</span>
+        }
 <span class="nc" id="L40">        System.out.println(&quot;----------------------------&quot;);</span>
 <span class="nc" id="L41">        System.out.println(&quot;          1. Home           &quot;);</span>
 <span class="nc" id="L42">        System.out.println(&quot;       2. Reload Stats      &quot;);</span>
@@ -52,7 +52,7 @@ import org.jsoup.select.Elements;
 <span class="nc bnc" id="L52" title="All 2 branches missed.">        }else if(choice.equals(&quot;3&quot;)){</span>
 <span class="nc" id="L53">            System.out.print(&quot;\033[H\033[2J&quot;);</span>
 <span class="nc" id="L54">            QuickFind();</span>
-        }else{
+<span class="nc" id="L55">        }else{</span>
 <span class="nc" id="L56">            System.out.println(ColorTextIndication.ANSI_RED+&quot;INVALID RESPONSE TRY AGAIN&quot;+ColorTextIndication.ANSI_RESET);</span>
 <span class="nc" id="L57">            Qfounded();</span>
         }

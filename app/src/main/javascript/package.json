@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "install": "^0.13.0",
+    "readline-sync": "^1.4.10"
+  }
+}
