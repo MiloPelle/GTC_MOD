@@ -18,7 +18,8 @@ public class Main {
         System.out.printf("|        2. Start Session       |%n");
         System.out.printf("|        3. Stat Logs           |%n");
         System.out.printf("|        4. Find MMR            |%n");
-        System.out.printf("|        5. Terminate App       |%n");
+        System.out.printf("|        5. Load Stats          |%n");
+        System.out.printf("|        6. Terminate App       |%n");
         System.out.printf("|-------------------------------|%n");
 
         try (Scanner HomeOp = new Scanner(System.in)){
@@ -30,12 +31,14 @@ public class Main {
                 System.out.print("\033[H\033[2J");
                 Session.GTCS();
             }else if(HomeOpt.equals("3")){
-                //haven't created yet
+                //have not created yet
             }else if(HomeOpt.equals("4")){
                 System.out.print("\033[H\033[2J");
                 FindMMR.QuickFind();
                 HomeOp.close();
             }else if(HomeOpt.equals("5")){
+                LoadStats.check();
+            }else if(HomeOpt.equals("6")){
                 System.out.println("PROGRAM ENDED");
             }else{
                 System.out.print("\033[H\033[2J");
