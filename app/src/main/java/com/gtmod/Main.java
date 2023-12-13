@@ -35,11 +35,11 @@ public class Main {
             }else if(HomeOpt.equals("4")){
                 System.out.print("\033[H\033[2J");
                 FindMMR.QuickFind();
-                HomeOp.close();
             }else if(HomeOpt.equals("5")){
                 LoadStats.check();
             }else if(HomeOpt.equals("6")){
                 System.out.println("PROGRAM ENDED");
+                HomeOp.close();
             }else{
                 System.out.print("\033[H\033[2J");
                 System.out.println(ColorTextIndication.ANSI_RED+"INVALID RESPONSE TRY AGAIN"+ColorTextIndication.ANSI_RESET);

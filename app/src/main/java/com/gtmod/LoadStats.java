@@ -54,12 +54,18 @@ public class LoadStats {
         for(Element b : MMR){
             String Rate = b.text();
             System.out.println("| Stats: "+Rate);
-            System.out.println("--------------------------------------------------|");
-            System.out.println("Enter Any Key To Continue");
-            input = choice.next();
-            if(choice.hasNext()){
-                Main.home();
-            }
+            System.out.println("|--------------------------------------------------|");
+            System.out.println("|                 1. Reload Stats                  |");
+            System.out.println("|                 2. Home                          |");
+            System.out.println("|--------------------------------------------------|");
+        }
+        input = choice.next();
+        if(input.equals("1")){
+            statLoader();
+        }else if(input.equals("2")){
+            Main.home();
+        }else{
+            statLoader();
         }
         
         }catch (java.net.SocketException e){

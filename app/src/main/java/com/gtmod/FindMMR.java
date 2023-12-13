@@ -20,6 +20,7 @@ public class FindMMR {
         System.out.printf("Enter Link ID:%n");
         System.out.printf("----------------------------%n");
         tID = QFind.next();
+        Qfounded();
 
     }
     public static void Qfounded() throws IOException{
@@ -31,11 +32,11 @@ public class FindMMR {
         Elements tName = tData.getElementsByClass("LeaderCardName");
         System.out.print("\033[H\033[2J");
         System.out.println("----------------------------");
-        for(Element Etmmr : tMMR){
-            System.out.println("Discord Name: "+Etmmr);
-        }
         for(Element EtName : tName){
-            System.out.println("Rating: "+EtName);
+            System.out.println("Discord Name: "+tName.text());
+        }
+        for(Element EtMMR : tName){
+            System.out.println("Rating: "+EtMMR.text());
         }
         System.out.println("----------------------------");
         System.out.println("          1. Home           ");
