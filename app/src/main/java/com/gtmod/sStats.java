@@ -91,9 +91,4 @@ public class sStats {
         d89f=nRTf-oRTf;
 
     }
-    public static void pushLogs(){
-
-        
-
-    }
 }

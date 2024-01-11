@@ -2,6 +2,9 @@ package com.gtmod;
 
 import java.awt.Font;
 import java.awt.event.KeyEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,12 +18,13 @@ public class JWindow extends JFrame{
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd HH:mm:ss");
     static LocalDateTime t = LocalDateTime.now();
 
+    static File logger = new File("C:\\Users\\milop\\OneDrive\\Documents\\Personal Github Repositories\\GTC_MOD-1\\app\\Docs\\Logs\\"+t+".txt");
+
 
     JWindow(String Wtitle) throws IOException{
     super(Wtitle);
     //panel init
     final JPanel StatScreen;
-    final JPanel chartScreen;
     //JLable init
     final JLabel title;
     //menuBar init
@@ -34,7 +38,8 @@ public class JWindow extends JFrame{
     final JMenuItem resumeProcesses = new JMenuItem("Resume Processes");
     //text fields
     final JTextField  uMMR = new JTextField("Updated MMR");
-    uMMR.setEditable(false);
+    uMMR.setLocation(50,20);
+    //
     setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     setDefaultLookAndFeelDecorated(true);
     setIconImage(new ImageIcon("C:\\Users\\milop\\OneDrive\\Documents\\Personal Github Repositories\\GTC_MOD-1\\app\\images\\gtcframelogo.png").getImage());
@@ -44,11 +49,7 @@ public class JWindow extends JFrame{
     StatScreen = new JPanel();
     StatScreen.setBackground(new java.awt.Color(255,132,132));
     add(StatScreen);
-    //chart panel initialization
-    chartScreen = new JPanel();
-    chartScreen.setBackground(new java.awt.Color(91,85,255));
-    add(chartScreen);
-    //title labelrjfnskufnvksjd
+    //title label
     title = new JLabel("GTCMOD");
     StatScreen.add(title);
     title.setHorizontalAlignment((int) JLabel.CENTER_ALIGNMENT);
@@ -97,30 +98,36 @@ public class JWindow extends JFrame{
         System.out.println("[INFO] process/resumeProcesses action complete");
     });
     process.add(resumeProcesses);
-    //separator between processes & display
-    JSeparator pBd = new JSeparator();
-    catalogue.add(pBd);
     //chart initializaiton button
     JMenuItem chartInitialization = new JMenuItem("Chart Display");
     chartInitialization.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
     //statscreen JPanel
     StatScreen.add(uMMR);
-    uMMR.setHorizontalAlignment((int) CENTER_ALIGNMENT);
     uMMR.setFont(new java.awt.Font(null,Font.PLAIN,10));
     uMMR.setBackground(new java.awt.Color(91,85,255));
-    uMMR.setBounds(0,50,50,20);
     //last initialize
     setJMenuBar(catalogue);
     }
-    public static void pushStats(Double fMMR, Double oMMR, Double nMMR, int fRT,int oRT,int nRT,int fTC, int oTC, int nTC, Double q13, Double q23,int d46, int d56, int d79, int d89){
+    public static void pushStats(Double fMMR, Double oMMR, Double nMMR, int fRT,int oRT,int nRT,int fTC, int oTC, int nTC, Double q13, Double q23,int d46, int d56, int d79, int d89) throws IOException{
 
         System.out.println(t);
         System.out.println("First MMR:"+fMMR);
         System.out.println("Old MMR:"+oMMR);
-        System.out.println("New MMR"+nMMR);
-        System.out.println("First Runtime"+fRT);
-        System.out.println("Old Runtime"+oRT);
-        System.out.println();
+        System.out.println("New MMR:"+nMMR);
+        System.out.println("First Runtime:"+fRT);
+        System.out.println("Old Runtime:"+oRT);
+        System.out.println("New Runtime:"+nRT);
+        System.out.println("First Tag Count:"+fTC);
+        System.out.println("Old Tag Count:"+oTC);
+        System.out.println("New Tag Count:"+nTC);
+        System.out.println("q13:"+q13);
+        System.out.println("q23:"+q23);
+        System.out.println("d46:"+d46);
+        System.out.println("d56:"+d56);
+        System.out.println("d79:"+d79);
+        System.out.println("d89:"+d89);
+
+
 
     }
 }
